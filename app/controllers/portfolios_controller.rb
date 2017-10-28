@@ -30,6 +30,10 @@ def show
  @portfolio_item = Portfolio.find(params[:id])
 end
 	
-
+def destroy
+	@portfolio_item = Portfolio.find(params[:id])
+	@portfolio.destroy
+	redirect_to portfolios_path
+end
  
 end
