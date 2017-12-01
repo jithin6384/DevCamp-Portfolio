@@ -61,4 +61,12 @@ end
     thumb_image: "http://placehold.it/350x200"
     )
  end
+
+ 3.times do |technology|
+  Technology.create!(
+    name: "Technology#{technology}",
+    portfolio_id: Portfolio.last.id
+    )
+end
+puts"3 technologies got created"
  
