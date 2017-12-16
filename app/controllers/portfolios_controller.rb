@@ -11,7 +11,7 @@ def new
  3.times{@portfolio_item.technologies.build}
 end
 def create
- @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title,:subtitle, :body, technologies_attributes:[:name]))
+ @portfolio_item = Portfolio.new(portfolio_params)
  if @portfolio_item.save
  	redirect_to portfolios_path(notice:"was succesfully edited" )
  else
@@ -24,7 +24,7 @@ def edit
 end
 def update
   @portfolio_item = Portfolio.find(params[:id])
- if @portfolio_item.update(params.require(:portfolio).permit(:title,:subtitle, :body))
+ if @portfolio_item.update(portfolio_params)
  	redirect_to portfolios_path
  else
  	render 'edit'
@@ -39,6 +39,15 @@ def destroy
 	@portfolio_item = Portfolio.find(params[:id])
 	@portfolio.destroy
 	redirect_to portfolios_path
+end
+
+private
+
+def portfolio_params
+  params.require(:portfolio).permit(:title,
+                                    :subtitle,
+                                    :body,
+                                     technologies_attributes: [:name])
 end
  
 end
