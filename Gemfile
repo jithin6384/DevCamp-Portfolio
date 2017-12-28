@@ -29,6 +29,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 4.2'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
+gem 'devcamp_view_tool',git: 'https://github.com/jordanhudgens/devcamp_view_tool'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
